@@ -15,16 +15,21 @@ keywords:
         cloud native: 1
         docker: 1
         kubernetes: 1
+        virtualization: 1
         malware: 1
         computer network: 1
         TCP: 1
         privacy: 1
+        openid: 1
+        oauth: 1
         authorization: 1
         authentication: 1
         threat: 1
         phishing: 1
         devsecops: 1
-        by design: 1
+        wireless network: 1
+        wsn: 1
+        dos: 1
 
 # 通知の閾値
 score_threshold: 0
