@@ -6,6 +6,7 @@ keywords:
         cyber range: 1
         incident response: 1
         log analysis: 1
+        log based: 1
         web security: 1
         zero-day: 1
         security: 1
@@ -15,7 +16,8 @@ keywords:
         docker: 1
         kubernetes: 1
         malware: 1
-        network: 1
+        computer network: 1
+        TCP: 1
         privacy: 1
         authorization: 1
         authentication: 1
