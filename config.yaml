@@ -3,9 +3,26 @@ subject: 'cat:cs.*'
 
 # 検索キーワード
 keywords:
-        kaggle: 3
-        resnet: 3
-        anomaly detection: 1
+        cyber range: 1
+        incident response: 1
+        log analysis: 1
+        web security: 1
+        zero-day: 1
+        security: 1
+        cybersecurity: 1
+        container: 1
+        cloud native: 1
+        docker: 1
+        kubernetes: 1
+        malware: 1
+        network: 1
+        privacy: 1
+        authorization: 1
+        authentication: 1
+        threat: 1
+        phishing: 1
+        devsecops: 1
+        by design: 1
 
 # 通知の閾値
 score_threshold: 0
