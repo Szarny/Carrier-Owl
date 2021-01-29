@@ -22,6 +22,7 @@ warnings.filterwarnings('ignore')
 class Result:
     url: str
     title: str
+    title_en: str
     abstract: str
     words: list
     score: float = 0.0
@@ -56,7 +57,7 @@ def search_keyword(
             abstract_trans = textwrap.wrap(abstract_trans, 40)  # 40行で改行
             abstract_trans = '\n'.join(abstract_trans)
             result = Result(
-                    url=url, title=title_trans, abstract=abstract_trans,
+                    url=url, title=title_trans, title_en=title, abstract=abstract_trans,
                     score=score, words=hit_keywords)
             results.append(result)
     return results
@@ -86,18 +87,14 @@ def notify(results: list, slack_id: str, line_token: str) -> None:
     # descending
     for result in sorted(results, reverse=True, key=lambda x: x.score):
         url = result.url
-        title = result.title
+        title = result.title_en
         abstract = result.abstract
-        word = result.words
+        words = result.words
         score = result.score
 
-        text = f'\n score: `{score}`'\
-               f'\n hit keywords: `{word}`'\
-               f'\n url: {url}'\
-               f'\n title:    {title}'\
-               f'\n abstract:'\
-               f'\n \t {abstract}'\
-               f'\n {star}'
+        text = f'\n *{title}* ({url})'\
+               f'\n Keywords: `{", ".join(words)}`'\
+               f'\n ```{abstract}```'
 
         send2app(text, slack_id, line_token)
 
