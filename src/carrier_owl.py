@@ -52,9 +52,9 @@ def search_keyword(
         score, hit_keywords = calc_score(abstract, keywords)
         if (score != 0) and (score >= score_threshold):
             title_trans = get_translated_text('ja', 'en', title)
+            title = title.replace('\n', '')
             abstract = abstract.replace('\n', '')
             abstract_trans = get_translated_text('ja', 'en', abstract)
-            abstract_trans = textwrap.wrap(abstract_trans, 40)  # 40行で改行
             abstract_trans = '\n'.join(abstract_trans)
             result = Result(
                     url=url, title=title_trans, title_en=title, abstract=abstract_trans,
