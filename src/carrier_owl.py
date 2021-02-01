@@ -165,17 +165,20 @@ def main():
     keywords = config['keywords']
     score_threshold = float(config['score_threshold'])
 
-    day_before_yesterday = datetime.datetime.today() - datetime.timedelta(days=2)
+    day_before_yesterday = datetime.datetime.today() - datetime.timedelta(days=3)
     day_before_yesterday_str = day_before_yesterday.strftime('%Y%m%d')
     # datetime format YYYYMMDDHHMMSS
     arxiv_query = f'({subject}) AND ' \
                   f'submittedDate:' \
                   f'[{day_before_yesterday_str}000000 TO {day_before_yesterday_str}235959]'
+
     articles = arxiv.query(query=arxiv_query,
                            max_results=1000,
                            sort_by='submittedDate',
                            iterative=False)
+    
     results = search_keyword(articles, keywords, score_threshold)
+    
 
     slack_id = os.getenv("SLACK_ID") or args.slack_id
     line_token = os.getenv("LINE_TOKEN") or args.line_token
