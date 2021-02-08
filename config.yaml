@@ -30,6 +30,8 @@ keywords:
         wireless network: 1
         wsn: 1
         dos: 1
+        learning: -999
+        neural network: -999
 
 # 通知の閾値
 score_threshold: 0
